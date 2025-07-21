@@ -1,7 +1,10 @@
 
 def get_todos(filepath="todos.txt"):
-    with open(filepath,'r') as file_local:
-        todos_local = file_local.readlines()
+    try:
+        with open(filepath, 'r') as file_local:
+            todos_local = file_local.readlines()
+    except FileNotFoundError:
+        todos_local = []  # Start with an empty list if file doesn't exist
     return todos_local
 
 
